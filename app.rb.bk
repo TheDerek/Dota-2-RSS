@@ -1,0 +1,12 @@
+rss = RSS::Maker.make('atom') do |maker|
+		maker.channel.author = 'Derek'
+		maker.channel.updated = Time.now.to_s
+		maker.channel.about = 'http://derek.ml'
+		maker.channel.title = 'Dota 2 League Matches Notifications'
+
+		maker.items.new_item do |item|
+			item.link = 'http://www.datdota.com/ticket_live.php?q=' + match.lobby_id.to_s
+			item.title = match.display_string
+			item.updated = Time.now.to_s
+		end
+	end
